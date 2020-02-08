@@ -24,12 +24,22 @@ void led_init(void)
 
 int main(void)
 {
+	int i;
 	HAL_Init();  //必须在第一个语句执行
 	
 	led_init();
 	
 	while(1)
 	{
-
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_13);
+//		for(i=0;i<1000000;i++)
+//		  ;
+		HAL_Delay(500);
 	}
+}
+
+
+void SysTick_Handler(void)
+{
+	HAL_IncTick();
 }
